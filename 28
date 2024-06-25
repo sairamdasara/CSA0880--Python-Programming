@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+def groupAnagrams(strs):
+    anagrams_dict = defaultdict(list)
+    
+    for s in strs:
+        sorted_s = ''.join(sorted(s))  # Sort the characters of s
+        anagrams_dict[sorted_s].append(s)  # Append s to the list of anagrams
+        
+    return list(anagrams_dict.values())
+
+# Test case
+strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+print(groupAnagrams(strs))
