@@ -1,0 +1,34 @@
+def minJumps(arr):
+    if len(arr) <= 1:
+        return 0
+    
+    # Initialize variables
+    max_reach = arr[0]   # Max index we can reach from the current position
+    steps = arr[0]       # Steps (jumps) remaining at current position
+    jumps = 1            # Number of jumps taken so far
+    
+    # Iterate through the array
+    for i in range(1, len(arr)):
+        # If we have reached the end of the array
+        if i == len(arr) - 1:
+            return jumps
+        
+        # Update max_reach
+        max_reach = max(max_reach, i + arr[i])
+        
+        # Decrement steps (use a jump)
+        steps -= 1
+        
+        # If no more steps left, take a jump
+        if steps == 0:
+            jumps += 1
+            
+            # Check if it's possible to move forward
+            if i >= max_reach:
+                return -1  # Cannot move forward
+    
+    return -1  # If we somehow exit the loop without reaching the end
+
+# Test case
+arr = [1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9]
+print(minJumps(arr))  # Output: 3
