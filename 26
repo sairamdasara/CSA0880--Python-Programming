@@ -1,0 +1,12 @@
+def find_mirror_number():
+    # Read input number as a string
+    number_str = input("Enter the number: ")
+    
+    # Reverse the number string
+    mirror_str = number_str[::-1]
+    
+    # Print the reversed number as the mirror image
+    print(f"Mirror image: {mirror_str}")
+
+# Example usage
+find_mirror_number()
