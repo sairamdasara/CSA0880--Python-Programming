@@ -1,0 +1,18 @@
+from itertools import permutations
+
+def generate_permutations(digits):
+    # Generate all permutations of the digits
+    perms = permutations(digits)
+    
+    # Convert each permutation tuple to a string and join them
+    result = [''.join(p) for p in perms]
+    
+    return result
+
+# Example usage:
+digits = '123'
+permutations_list = generate_permutations(digits)
+
+# Print the permutations
+for perm in permutations_list:
+    print(perm)
