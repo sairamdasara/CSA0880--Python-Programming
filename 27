@@ -1,0 +1,18 @@
+from itertools import permutations
+
+def permuteUnique(nums):
+    # Use set to store unique permutations
+    result_set = set()
+    
+    # Generate permutations and add them to the set
+    for perm in permutations(nums):
+        result_set.add(tuple(perm))
+    
+    # Convert set of tuples to list of lists
+    result = [list(perm) for perm in result_set]
+    
+    return result
+
+# Test case
+nums = [1, 1, 2]
+print(permuteUnique(nums))
